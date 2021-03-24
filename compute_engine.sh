@@ -26,4 +26,32 @@ gcloud compute instances list
 # List instances for specific project
 gcloud --project specificproject compute instances list
 
+# Start/ stop an instance
+gcloud compute instances start/stop my-vm --zone us-central1-c --async
 
+# Describe an instance
+gcloud compute instances describe my-vm 
+
+# List snapshots
+gcloud compute snapshots list 
+
+# Create a snapshot from a disk
+gcloud compute disks snapshot DISK_NAME --zone us-central1-c
+
+# Describe a snapshot
+gcloud compute snapshots describe SNAPSHOT_NAME
+
+# Delete a snapshot
+gcloud compute snapshots delete SNAPSHOT_NAME
+
+# Create a disk from a snapshot
+gcloud compute disks create disk-i1 --source-snapshot=SNAPSHOT_NAME --size=20 --type=pd-standard --zone us-central1-c
+
+# Delete a disk
+gcloud compute disks delete disk-i1 --zone us-central1-c
+
+# Create an instance template
+gcloud compute instance-templates create INSTANCE_TEMPLATE --source-instance=INSTANCE_NAME
+
+# Delete an instance template
+gcloud compute instance-templates delete INSTANCE_TEMPLATE 
