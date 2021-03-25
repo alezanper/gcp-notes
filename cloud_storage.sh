@@ -1,6 +1,3 @@
-
-
-
 # List buckets
 gsutil ls
 
