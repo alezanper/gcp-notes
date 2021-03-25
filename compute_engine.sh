@@ -10,6 +10,12 @@ gcloud services list --enabled
 # List available services with compute word on it
 gcloud services list --available | grep compute
 
+# List compute machine types
+gcloud compute machine-types list
+
+# List compute machine types with filter
+gcloud compute machine-types list --filter="NAME:f1-micro AND ZONE:us-west"
+
 # Deploy a virtual machine 
 gcloud compute instances create "my-vm" \   # Virtual Machine name
 --machine-type "n1-standard-1" \            # Virtual Machine Type
@@ -50,8 +56,14 @@ gcloud compute disks create disk-i1 --source-snapshot=SNAPSHOT_NAME --size=20 --
 # Delete a disk
 gcloud compute disks delete disk-i1 --zone us-central1-c
 
+# List templates
+gcloud compute instance-templates list
+
 # Create an instance template
 gcloud compute instance-templates create INSTANCE_TEMPLATE --source-instance=INSTANCE_NAME
 
 # Delete an instance template
 gcloud compute instance-templates delete INSTANCE_TEMPLATE 
+
+# Modify firewall rules
+gcloud compute firewall-rules create www-firewall --allow tcp:80
