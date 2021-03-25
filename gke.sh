@@ -25,3 +25,41 @@ gcloud container images list
 # To be the detail of an image as an argument
 gcloud container images describe gcr.io/appengflex-project-1/nginx
 
+# Get nodes
+kubectl get nodes
+
+# Get pods
+kubectl get pods
+
+# Describe nodes
+kubectl describe nodes
+
+# Describe pods
+kubectl describe pods
+
+# Get deployments
+kubectl get deployments 
+
+# Scale deployment
+kubectl scale deployment DEPLOYMENT_NAME --replicas 5
+
+# Enable autoscale for deployments
+kubectl autoscale deployment DEPLOYMENT_NAME --max 10 --min 1 --cpu-percent 80
+
+# Delete a deployment
+kubectl detele deployment DEPLOYMENT_NAME
+
+# Download and run an image
+kubectl run hello-app --image=gcr.io/google-samples/hello-app:1.0 --port 8080
+
+# Expose deployment 
+kubectl expose deployment hello-app --type="LoadBalancer"
+
+# Delete a service
+kubectl delete service SERVICE_NAME
+
+# Scale deployment to specific replicas
+kubectl scale deployment hello-app --replicas=5
+
+# Get service
+kubectl get service SERVICE_NAME
