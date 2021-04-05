@@ -25,6 +25,9 @@ gcloud container images list
 # To be the detail of an image as an argument
 gcloud container images describe gcr.io/appengflex-project-1/nginx
 
+# Version
+kubectl version
+
 # Get nodes
 kubectl get nodes
 
@@ -34,14 +37,26 @@ kubectl get pods
 # Describe nodes
 kubectl describe nodes
 
-# Describe pods
-kubectl describe pods
+# Create a deploy
+kubectl create deploy nginx --image=nginx:1.17.10
 
-# Get deployments
-kubectl get deployments 
+# Get pods
+kubectl get pods
+
+# Expose deployment
+kubectl expose deployment nginx --port 80 --type LoadBalancer
+
+# Get services
+kubectl get services
 
 # Scale deployment
-kubectl scale deployment DEPLOYMENT_NAME --replicas 5
+kubectl scale deployment nginx --replicas 3
+
+# check pods again
+kubectl get pods
+
+# check services
+kubectl get services
 
 # Enable autoscale for deployments
 kubectl autoscale deployment DEPLOYMENT_NAME --max 10 --min 1 --cpu-percent 80
@@ -63,3 +78,5 @@ kubectl scale deployment hello-app --replicas=5
 
 # Get service
 kubectl get service SERVICE_NAME
+
+
